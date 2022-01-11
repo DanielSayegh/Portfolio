@@ -49,7 +49,7 @@ let skills = [
         category: 'Databases',
         items: [
             'MySQL', 
-            'Python',  
+            'Redis',  
             'Oracle',
             'MongoDB',
         ],
