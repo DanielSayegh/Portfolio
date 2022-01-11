@@ -1,0 +1,99 @@
+@use "sass:math";
+@use 'fonts';
+@use 'colors';
+
+
+.hero-root {
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+    $nav-height: 75px;
+    $hero-box-height-mid: 20vw;
+    $hero-box-max-height: 275px;
+    $hero-box-min-height: 100px;
+    $hero-box-width-mid: 60vw;
+    $hero-box-max-width: 800px;
+    $hero-box-min-width: 275px;
+    $hero-box-border-radius: 20px;
+    $hero-box-top-bottom-margin: 75px;
+    $hero-box-height: #{min(#{$hero-box-max-height}, max(#{$hero-box-height-mid}, #{$hero-box-min-height}))};
+    $hero-box-width: #{min(#{$hero-box-max-width}, max(#{$hero-box-width-mid}, #{$hero-box-min-width}))};
+
+    .hero-box {
+        box-sizing: border-box;
+        height: $hero-box-height;
+        width: $hero-box-width;
+        background: linear-gradient(160deg, colors.$gradient-1, colors.$gradient-2);
+        border-radius: $hero-box-border-radius;
+        position: relative;
+        margin: auto;
+        margin-top: $hero-box-top-bottom-margin;
+        margin-bottom: $hero-box-top-bottom-margin;
+    }
+
+   
+
+    .intro-text-parent {
+        position: absolute;
+        left: min(max(10vw, 25px), 130px);
+        top: calc(#{$hero-box-height} / 8);
+    }
+
+    .intro-text-1 {
+        @extend .font-family-mono;
+        font-size: calc(2 * #{$hero-box-height} / 8);
+
+        -webkit-marquee-increment: 0.01vw;
+    }
+
+    .flex-wrapper {
+        display: flex;
+        height: calc(2.5 * #{$hero-box-height} / 8);
+    }
+
+    .intro-text-2 {
+        @extend .font-family-mono;
+        @extend .font-weight-thin;
+        font-size: calc(#{$hero-box-height} / 8);
+        display: inline-block; 
+        align-self: flex-end;
+
+        -webkit-marquee-increment: 0.01vw;
+    }
+
+    .hide-cursor {
+        border-right: none;
+    }
+
+    .solid-cursor {
+        border-right: 0.1em solid white;
+    }
+
+    .blink-cursor {
+        border-right: 0.1em solid white;
+        animation-name: blink;
+        animation-duration: 0.7s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(1, end);
+    }
+}
+
+@keyframes fade-out { 
+    80% { 
+        opacity: 100%; 
+    } 
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes shoot {
+    0% { transform: translate(50%, 50%); }
+}
+
+@keyframes blink {
+    from, to { border-right: none; }
+    50% { border-right: 0.1em solid white; }
+}

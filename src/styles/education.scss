@@ -1,0 +1,49 @@
+@use 'fonts';
+@use 'colors';
+
+.education-root {
+    .school {
+        font-size: 24px;
+        margin-top: 0px;
+
+        .binghamton{
+            color: colors.$binghamton-green;
+        }
+       
+        .university{
+            color: colors.$binghamton-white;
+        }
+
+        .iona {
+            color: colors.$iona-maroon;
+        }
+
+        .college {
+            color: colors.$iona-gold;
+        }
+    }
+
+    .item {
+        margin-bottom: 3px;
+        .key {
+            @extend .font-family-mono;
+            font-weight: bold;
+        }
+
+        .value {
+            color: colors.$secondary-text-color;
+
+            &.honors-list {
+                .society-name {
+                    @extend .font-family-mono;
+                }
+
+                .society-description {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: colors.$secondary-text-color;
+                }
+            }
+        }
+    }
+}
